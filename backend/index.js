@@ -21,14 +21,10 @@ app.use(errorHandler);
 app.listen(PORT, (resp) => {
   console.log("server running");
   mongoose
-    .connect(
-      process.env.MONGODB_URI ||
-        "mongodb+srv://DJDB:Dushibabadus@mongo.n1dzz.mongodb.net/vvdn?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    )
+    .connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
     .then(() => {
       console.log("Connected to mongodb database");
     });
