@@ -1,13 +1,7 @@
-/**
- * NOT_FOUND(404) middleware to catch error response
- *
- * @param  {object}   req
- * @param  {object}   res
- * @param  {function} next
- */
+// NOT_FOUND(404) middleware to catch error response
 
-export function notFoundErrorHandler(req, res, next) {
-  res.status(404).json({
+function notFoundErrorHandler(req, res, next) {
+  return res.status(404).json({
     success: false,
     error: {
       code: 404,
@@ -16,16 +10,10 @@ export function notFoundErrorHandler(req, res, next) {
   });
 }
 
-/**
- * Generic error response middleware
- *
- * @param  {object}   err
- * @param  {object}   req
- * @param  {object}   res
- * @param  {function} next
- */
-export function errorHandler(err, req, res, next) {
-  res.status(err.status || 500).json({
+// Generic error response middleware
+
+function errorHandler(err, req, res, next) {
+  return res.status(err.status || 500).json({
     success: false,
     error: {
       code: err.code || 500,
@@ -33,3 +21,5 @@ export function errorHandler(err, req, res, next) {
     },
   });
 }
+
+module.exports = { errorHandler, notFoundErrorHandler };

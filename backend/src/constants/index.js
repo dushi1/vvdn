@@ -1,6 +1,6 @@
 const baseapi = "/api/v1";
 
-export default {
+module.exports = {
   url: {
     baseapi,
   },

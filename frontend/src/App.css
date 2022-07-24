@@ -1,38 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 35px;
   color: white;
+  box-shadow: 0px 4px 52px 10px rgba(0, 0, 0, 0.38);
 }
 
-.App-link {
-  color: #61dafb;
+.App-header p {
+  color: #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Form-Container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  align-self: center;
+  padding: 5px;
+}
+
+.Form-Section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Form-Section label {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+
+.Form-Section input {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.Form-Section select {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 0px;
+}
+
+h6 {
+  color: red;
+  align-self: start;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.loading {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.38);
+  z-index: 10;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: lightcoral;
+  border-radius: 5px;
 }

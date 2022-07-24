@@ -1,19 +1,35 @@
 require("dotenv").config();
-import express from "express";
-const PORT = process.env.PORT || 5000;
+const express = require("express");
+const PORT = 5000;
 const app = express();
-import {
+const {
   notFoundErrorHandler,
   errorHandler,
-} from "./src/middleware/apiErrorHandler";
-import constants from "./src/constants/index";
+} = require("./src/middleware/apiErrorHandler");
+const constants = require("./src/constants/index");
+const route = require("./src/route/index.route");
+const mongoose = require("mongoose");
 
-app.use(constants.url.baseapi);
+app.use(express.json());
+
+app.use(constants.url.baseapi, route);
 
 app.use(notFoundErrorHandler);
 
 app.use(errorHandler);
 
-app.listen(() => {
-  console.log("Server is running");
-}, PORT);
+app.listen(PORT, (resp) => {
+  console.log("server running");
+  mongoose
+    .connect(
+      process.env.MONGODB_URI ||
+        "mongodb+srv://DJDB:Dushibabadus@mongo.n1dzz.mongodb.net/vvdn?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    )
+    .then(() => {
+      console.log("Connected to mongodb database");
+    });
+});
